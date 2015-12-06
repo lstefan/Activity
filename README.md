@@ -1,0 +1,2 @@
+# Activity
+Event recommendation app
