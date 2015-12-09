@@ -15,7 +15,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>	
 		<!-- BOOTSTRAP STYLES-->
 	<link
-		href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.css" rel="stylesheet" />
+		href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-3.1.1.css" rel="stylesheet" />
 	<!-- FONTAWESOME STYLES-->
 	<link
 		href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.css" rel="stylesheet" />

@@ -41,4 +41,9 @@ public class ActivityServiceImpl implements ActivityService {
 		return activityRepository.findByCategory(category);
 	}
 
+	@Override
+	public List<Activity> findMostRecent() {
+		return activityRepository.findFirst8ByOrderByDateHappeningDesc();
+	}
+
 }

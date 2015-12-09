@@ -12,7 +12,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	<!-- BOOTSTRAP STYLES-->
-	<link href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.css" rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-3.1.1.css" rel="stylesheet" />
 	<!-- FONTAWESOME STYLES-->
 	<link href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.css" rel="stylesheet" />
 	<!-- CUSTOM STYLES-->

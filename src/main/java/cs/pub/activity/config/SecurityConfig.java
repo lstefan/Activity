@@ -62,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 "/auth/**",
                                 "/login",
                                 "/signup/**",
-                                "/user/register/**"
+                                "/register/**"
                         ).permitAll()
 
                         //The rest of the our application is protected.

@@ -29,6 +29,9 @@ public class Activity extends AbstractPersistable<Long> {
 	private Timestamp dateHappening;
 	
 	@Column
+	private Timestamp dateAdded;
+
+	@Column
 	@Enumerated(EnumType.STRING)
 	private Category category;
 
@@ -38,68 +41,87 @@ public class Activity extends AbstractPersistable<Long> {
 	@Column
 	private int roundedRating;
 	
+	@Column
+	private String image;
+	
 /*	@Column
 	@Enumerated(EnumType.ORDINAL)
 	private Rating rating;*/
 	
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public Timestamp getDateHappening() {
-		return dateHappening;
-	}
-
-	public void setDateHappening(Timestamp dateHappening) {
-		this.dateHappening = dateHappening;
+	public int getAvgRating() {
+		return avgRating;
 	}
 
 	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-	
-	public int getAvgRating() {
-		return avgRating;
+	public Timestamp getDateHappening() {
+		return dateHappening;
 	}
 
-	public void setAvgRating(int avgRating) {
-		this.avgRating = avgRating;
+	public String getDescription() {
+		return description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public Timestamp getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(Timestamp dateAdded) {
+		this.dateAdded = dateAdded;
+	}
+	
+	public String getLocation() {
+		return location;
 	}
 
 	public int getRoundedRating() {
 		return roundedRating;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setAvgRating(int avgRating) {
+		this.avgRating = avgRating;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public void setDateHappening(Timestamp dateHappening) {
+		this.dateHappening = dateHappening;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	@Override
+	public void setId(Long id) {
+		super.setId(id);
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public void setRoundedRating(int roundedRating) {
 		this.roundedRating = roundedRating;
 	}
 
-	@Override
-	public void setId(Long id) {
-		super.setId(id);
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

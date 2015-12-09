@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,17 +21,24 @@ public class ActivityController {
 	@Autowired
 	ActivityService activityService;
 	
-	@RequestMapping(value = "/user/activities", method = RequestMethod.GET)
+	@RequestMapping(value = "/activities", method = RequestMethod.GET)
 	public String getActivities(Model model) {
 		Iterable<Activity> activityList = activityService.findAllActivities();
 		model.addAttribute("activityList", activityList);
 		return "/user/activities";
 	}
 	
-	@RequestMapping(value = "/user/movies", method = RequestMethod.GET)
+	@RequestMapping(value = "/activities/movies", method = RequestMethod.GET)
 	public String getMovieActivities(Model model) {
 		Iterable<Activity> activityList = activityService.findActivitiesByCategory(Category.MOVIES);
 		model.addAttribute("activityList", activityList);
 		return "/user/activities";
+	}
+	
+	@RequestMapping(value = "/activities/{activityId}", method = RequestMethod.GET)
+	public String getActivityDetails(@PathVariable("activityId") long activityId, Model model) {
+		Activity selectedActivity = activityService.findActivity(activityId);
+		model.addAttribute("activity", selectedActivity);
+		return "/user/activity";
 	}
 }

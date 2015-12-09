@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import cs.pub.activity.model.Activity;
+import cs.pub.activity.services.ActivityService;
 import cs.pub.activity.services.UserService;
 
 
@@ -23,6 +25,9 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ActivityService activityService;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -31,11 +36,13 @@ public class HomeController {
 	public String home(Locale locale) {
 		logger.info("Client locale is: " + locale.getDisplayLanguage()); 
 		
-		return "forward:/user/homepage";
+		return "forward:/home";
 	}
 
-	@RequestMapping(value = "/user/homepage", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homePage(Model model) {
+		Iterable<Activity> recentActivities = activityService.findMostRecent();
+		model.addAttribute("recentActivities", recentActivities);
 		return "/user/home";
 	}
 

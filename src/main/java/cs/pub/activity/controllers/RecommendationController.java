@@ -16,7 +16,7 @@ public class RecommendationController {
 
 	private static final Logger logger = LoggerFactory.getLogger(RecommendationController.class);
 	
-	@RequestMapping(value = "/user/recommendations", method = RequestMethod.GET)
+	@RequestMapping(value = "/recommendations", method = RequestMethod.GET)
 	public String getRecommendations(Model model) {
 		return "/user/recommendations";
 	}

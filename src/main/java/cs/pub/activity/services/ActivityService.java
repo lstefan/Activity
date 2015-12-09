@@ -10,5 +10,6 @@ public interface ActivityService {
 	Activity findActivity(Long id);
 	List<Activity> findAllActivities();
 	List<Activity> findActivitiesByCategory(Category category);
+	List<Activity> findMostRecent();
 	
 }

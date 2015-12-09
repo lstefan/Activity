@@ -9,4 +9,6 @@ import cs.pub.activity.model.Category;
 
 public interface ActivityRepository extends PagingAndSortingRepository<Activity, Long> {
 	public List<Activity> findByCategory(Category category);
+	
+	public List<Activity> findFirst8ByOrderByDateHappeningDesc();
 }

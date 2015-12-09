@@ -4,9 +4,9 @@
 <head>
 <title>Activity</title>
 
-<!-- BOOTSTRAP STYLES-->
+<!-- bootstrap_v3 STYLES-->
 <link
-	href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.css"
+	href="${pageContext.request.contextPath}/resources/assets/css/bootstrap_v3.css"
 	rel="stylesheet" />
 <!-- FONTAWESOME STYLES-->
 <link
@@ -45,10 +45,10 @@
 			<li><a href="${pageContext.request.contextPath}/"><i class="fa fa-home fa-3x"></i>
 					Home </a></li>
 					  				
-			<li><a href="${pageContext.request.contextPath}/user/activities"><i class="fa fa-table fa-3x"></i>
+			<li><a href="${pageContext.request.contextPath}/activities"><i class="fa fa-table fa-3x"></i>
 					Activities </a></li>
 					
-			<li><a href="${pageContext.request.contextPath}/user/recommendations"><i class="fa fa-edit fa-3x"></i>
+			<li><a href="${pageContext.request.contextPath}/recommendations"><i class="fa fa-edit fa-3x"></i>
 					Recommendations </a></li>
 			<li><a href="<spring:url value="/logout" htmlEscape="true" />"><i
 					class="fa fa-power-off fa-3x"></i> Logout</a></li>
