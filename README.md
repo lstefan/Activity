@@ -21,6 +21,8 @@ Option2: from git bash <br/>
 	cd project_dir <br/>
 	maven clean install <br/>
 	cp activity.war from target dir to apache tomcat dir/webapps <br/>
-	apache-tomcat-8.0.20\bin\startup.bat
+	apache-tomcat-8.0.20\bin\startup.bat <br/>
+	
+Database dump can be found in src/main/resources.
 	
 	
