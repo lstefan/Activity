@@ -1,26 +1,26 @@
 # Activity
 Event recommendation app
 
-Prerequisites:
-Eclipse IDE for Java EE Developers https://www.eclipse.org/downloads/
-Apache Tomcat http://tomcat.apache.org/download-80.cgi
-MySql Server https://dev.mysql.com/downloads/mysql/
-MySql Workbench https://www.mysql.com/products/workbench/
-Git https://git-scm.com/download/win
+Prerequisites: <br/>
+Eclipse IDE for Java EE Developers https://www.eclipse.org/downloads/ <br/>
+Apache Tomcat http://tomcat.apache.org/download-80.cgi <br/>
+MySql Server https://dev.mysql.com/downloads/mysql/ <br/>
+MySql Workbench https://www.mysql.com/products/workbench/ <br/>
+Git https://git-scm.com/download/win <br/>
 
-Build and run:
-Option1: from Eclipse
-	Right click on project: Run As -> Maven install
-	Window->Show View->Servers
-	Define Tomcat Server
-	Right click on project: Run As -> Run on Server
+Build and run: <br/>
+Option1: from Eclipse <br/>
+	Right click on project: Run As -> Maven install <br/>
+	Window->Show View->Servers <br/>
+	Define Tomcat Server <br/>
+	Right click on project: Run As -> Run on Server <br/>
 	
-Option2: from git bash
-	You also need Apache Maven installed: https://maven.apache.org/download.cgi
-	Open gitbash console
-	cd project_dir
-	maven clean install
-	cp activity.war from target dir to apache tomcat dir/webapps
+Option2: from git bash <br/>
+	You also need Apache Maven installed: https://maven.apache.org/download.cgi <br/>
+	Open gitbash console <br/>
+	cd project_dir <br/>
+	maven clean install <br/>
+	cp activity.war from target dir to apache tomcat dir/webapps <br/>
 	apache-tomcat-8.0.20\bin\startup.bat
 	
 	
