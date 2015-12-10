@@ -16,6 +16,8 @@
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/star-rating.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/prettyPhoto.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/custom-styles.css">
@@ -29,8 +31,10 @@
 
 <!-- JS
 ================================================== -->
-<script src="${pageContext.request.contextPath}/resources/assets/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/star-rating.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.quicksand.js"></script>
@@ -104,6 +108,7 @@
                         <span class="project-details">
 	            			<a href="${fn:escapeXml(activityUrl)}"><c:out value="${activity.title}"/></a>
                         </span>
+                        <input id="input-id" type="number" class="rating" readonly="true" min=0 max=5 step=0.5 data-size="xs" value="${activity.avgRating}">
                     </li>
                     </c:forEach>
 

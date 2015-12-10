@@ -31,7 +31,8 @@
 
 <!-- JS
 ================================================== -->
-<script src="${pageContext.request.contextPath}/resources/assets/js/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.flexslider.js"></script>

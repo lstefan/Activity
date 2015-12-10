@@ -34,7 +34,8 @@
 
 <!-- JS
 ================================================== -->
-<script src="${pageContext.request.contextPath}/resources/assets/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.easing.1.3.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>

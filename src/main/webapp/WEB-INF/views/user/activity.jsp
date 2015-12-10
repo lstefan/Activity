@@ -16,6 +16,8 @@
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/star-rating.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/prettyPhoto.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/custom-styles.css">
@@ -29,12 +31,25 @@
 
 <!-- JS
 ================================================== -->
-<script src="${pageContext.request.contextPath}/resources/assets/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/star-rating.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.quicksand.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.custom.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        $('#input-id').on('rating.change', function(event, value, caption) {
+            console.log(value);
+
+        });
+
+    });
+</script>
 
 </head>
 
@@ -96,7 +111,7 @@
                         <li><h6>Average Rating:</h6>${activity.avgRating}</li>
                     </ul>
 
-                    <button class="btn btn-inverse pull-left" type="button">Your rating</button>
+                    <input id="input-id" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs">
                     <a href="${pageContext.request.contextPath}/activities" class="pull-right"><i class="icon-arrow-left"></i>Back to Activities</a>
                 </div>
             </div>
