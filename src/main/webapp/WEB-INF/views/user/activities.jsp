@@ -53,7 +53,7 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="/home"><img src="${pageContext.request.contextPath}/resources/images/activity_logo.png" alt="" /></a>
+        	<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/activity_logo.png" alt="" /></a>
             <h5>Rediscover your hobbies</h5>
         </div>
         
@@ -85,6 +85,8 @@
         <div class="span12 gallery">
 
             <ul id="filterOptions" class="gallery-cats clearfix">
+            	<spring:url value="/activities" var="allActivities"/>
+				<spring:url value="/activities/movies" var="movieActivities"/>	
 				<li class=""><a href="${fn:escapeXml(allActivities)}">ALL</a></li>
 				<li class=""><a href="${fn:escapeXml(movieActivities)}">MOVIES</a></li>
             </ul>

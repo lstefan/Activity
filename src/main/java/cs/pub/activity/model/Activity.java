@@ -19,7 +19,7 @@ public class Activity extends AbstractPersistable<Long> {
 	@Column(length = 100)
 	private String title;
 	
-	@Column(length = 1000)
+	@Column(length = 5000)
 	private String description;
 	
 	@Column(length = 50)

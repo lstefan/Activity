@@ -64,7 +64,7 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="/home"><img src="${pageContext.request.contextPath}/resources/images/activity_logo.png" alt="" /></a>
+        	<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/activity_logo.png" alt="" /></a>
             <h5>Rediscover your hobbies</h5>
         </div>
         
