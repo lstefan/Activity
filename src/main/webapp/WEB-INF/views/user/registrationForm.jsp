@@ -50,7 +50,7 @@
 					</div>
 					<div class="panel-body">
 						<form:form
-							action="${pageContext.request.contextPath}/user/register"
+							action="${pageContext.request.contextPath}/register"
 							method="POST" enctype="utf8" id="signupform" role="form"
 							commandName="user">
 							<c:if test="${user.signInProvider != null}">

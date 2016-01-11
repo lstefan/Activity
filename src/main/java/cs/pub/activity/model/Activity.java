@@ -1,20 +1,29 @@
 package cs.pub.activity.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
 @Table(name = "activity")
-public class Activity extends AbstractPersistable<Long> {
+public class Activity  {
 
-	private static final long serialVersionUID = 1973224700290835934L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="activity_id", unique = true, nullable = false)
+    private Long id;
 
 	@Column(length = 100)
 	private String title;
@@ -44,10 +53,41 @@ public class Activity extends AbstractPersistable<Long> {
 	@Column
 	private String image;
 	
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name="id")
+    private Set<UserRating> activityRatings;
+	
+	public Set<UserRating> getActivityRatings() {
+		return activityRatings;
+	}
+
+	public void setActivityRatings(Set<UserRating> activityRatings) {
+		this.activityRatings = activityRatings;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+/*    @ManyToMany(mappedBy="activitiesRated")
+    private Set<User> usersThatRated = new HashSet<User>();*/
+	
+	
 /*	@Column
 	@Enumerated(EnumType.ORDINAL)
 	private Rating rating;*/
 	
+/*	public Set<User> getUsersThatRated() {
+		return usersThatRated;
+	}
+
+	public void setUsersThatRated(Set<User> usersThatRated) {
+		this.usersThatRated = usersThatRated;
+	}*/
+
 	public int getAvgRating() {
 		return avgRating;
 	}
@@ -104,10 +144,6 @@ public class Activity extends AbstractPersistable<Long> {
 		this.description = description;
 	}
 	
-	@Override
-	public void setId(Long id) {
-		super.setId(id);
-	}
 
 	public void setImage(String image) {
 		this.image = image;

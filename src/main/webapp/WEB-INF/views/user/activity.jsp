@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@page info="Activities Page" session="true"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -111,7 +112,13 @@
                         <li><h6>Average Rating:</h6>${activity.avgRating}</li>
                     </ul>
 
-                    <input id="input-id" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs">
+                    <spring:url value="/activities/{activityId}" var="activityRatingUrl">
+						<spring:param name="activityId" value="${activity.id}"/>
+					</spring:url>
+					<form:form id="form" action="${fn:escapeXml(activityRatingUrl)}" method="POST">
+                    	<input id="input-id" type="number" class="rating" name="rating" min=0 max=5 step=0.5 data-size="xs">
+                    	<input type="submit" value="OK"> 
+                    </form:form>
                     <a href="${pageContext.request.contextPath}/activities" class="pull-right"><i class="icon-arrow-left"></i>Back to Activities</a>
                 </div>
             </div>

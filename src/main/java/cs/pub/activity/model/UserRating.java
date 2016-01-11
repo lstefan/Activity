@@ -1,25 +1,39 @@
 package cs.pub.activity.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
 @Table(name = "user_rating")
-public class UserRating extends AbstractPersistable<Long> {
+public class UserRating {
 
-	private static final long serialVersionUID = -3771065949767914322L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id", unique = true, nullable = false)
+    private Long id;
 	
-	@Column(name="activity_id")
+	@ManyToOne
+	@JoinColumn(name = "activity_id")
 	private Activity activity;
 	
-	@Column(name="user_id")
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@Column
-	private int rating;
+	private float rating;
 
 	public Activity getActivity() {
 		return activity;
@@ -37,17 +51,22 @@ public class UserRating extends AbstractPersistable<Long> {
 		this.user = user;
 	}
 	
-	public int getRating() {
+	public float getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 
-	@Override
+	public Long getId() {
+		return id;
+	}
+
 	public void setId(Long id) {
-		super.setId(id);
-	}	
+		this.id = id;
+	}
+
+
 
 }

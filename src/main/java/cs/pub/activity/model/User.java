@@ -1,19 +1,30 @@
 package cs.pub.activity.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
 @Table(name = "user")
-public class User extends AbstractPersistable<Long> {
+public class User {
 	
-	private static final long serialVersionUID = -5430119865810405526L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="user_id", unique = true, nullable = false)
+    private Long id;
 	
 	@Column(name = "firstname", length = 45)
 	private String firstname;
@@ -34,6 +45,11 @@ public class User extends AbstractPersistable<Long> {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "sign_in_provider", length = 20)
 	private SocialMediaProvider signInProvider;
+	
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name="id")
+    private Set<UserRating> userRatings;
+
 
 	public static class Builder {
 
@@ -84,6 +100,22 @@ public class User extends AbstractPersistable<Long> {
 		return new Builder();
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Set<UserRating> getUserRatings() {
+		return userRatings;
+	}
+
+	public void setUserRatings(Set<UserRating> userRatings) {
+		this.userRatings = userRatings;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -116,10 +148,6 @@ public class User extends AbstractPersistable<Long> {
 		this.firstname = firstname;
 	}
 
-	@Override
-	public void setId(Long id) {
-		super.setId(id);
-	}
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;

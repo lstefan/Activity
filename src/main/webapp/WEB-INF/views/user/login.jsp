@@ -70,7 +70,7 @@
 									class="btn btn-primary">Login with Facebook</a>
 								<hr>
 								Don't have an account? <a
-									href="${pageContext.request.contextPath}/user/register">
+									href="${pageContext.request.contextPath}/register">
 									Register here! </a>
 
 							</form>

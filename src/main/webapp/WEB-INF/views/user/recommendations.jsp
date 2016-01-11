@@ -16,14 +16,11 @@
 ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/star-rating.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/prettyPhoto.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/custom-styles.css">
-
-<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="css/style-ie.css"/>
-<![endif]--> 
 
 <!-- Favicons
 ================================================== -->
@@ -37,6 +34,7 @@
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/star-rating.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.prettyPhoto.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/jquery.quicksand.js"></script>
@@ -81,14 +79,70 @@
     <!-- Page Content
     ================================================== --> 
     <div class="row">
-		<div class="span12">
-		<h2>Your recommendations</h2>
-        <p class="lead">	
-        				Sorry :( . Currently you don't have any recommendations. <br>
-					Help us out by starting to rate activities. <br>
-					You can browse them <a href="${pageContext.request.contextPath}/user/activities"><b>here</b></a>.</p>
 
+		<div class="span12">
+			<h2>Your recommendations</h2>
+			<c:if test="${noOfActivities eq 0}">
+		        <p class="lead">	
+		        				Sorry :( . Currently you don't have any recommendations. <br>
+							Help us out by starting to rate activities. <br>
+							You can browse them <a href="${pageContext.request.contextPath}/user/activities"><b>here</b></a>.</p>
+			</c:if>
 		</div>
+        <!-- Gallery Items
+        ================================================== --> 
+        <div class="span12 gallery">
+
+
+ <%--            <ul id="filterOptions" class="gallery-cats clearfix">
+            	<spring:url value="/activities" var="allActivities"/>
+				<spring:url value="/activities/movies" var="movieActivities"/>	
+				<li class=""><a href="${fn:escapeXml(allActivities)}">ALL</a></li>
+				<li class=""><a href="${fn:escapeXml(movieActivities)}">MOVIES</a></li>
+            </ul> --%>
+
+            <div class="row clearfix">
+
+
+                <ul class="gallery-post-grid holder">
+					<c:forEach var="activity" items="${activityList}" varStatus="lineInfo">
+                    <!-- Gallery Items -->
+                    <li  class="span3 gallery-item" data-id="id-1" data-type="illustration">
+                        <span class="gallery-hover-4col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="${pageContext.request.contextPath}/resources/images/${activity.image}" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="${pageContext.request.contextPath}/resources/images/${activity.image}" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <spring:url value="/activities/{activityId}" var="activityUrl">
+							<spring:param name="activityId" value="${activity.id}"/>
+						</spring:url>
+						
+                        <a href="${fn:escapeXml(activityUrl)}"><img src="${pageContext.request.contextPath}/resources/images/${activity.image}" alt="Gallery"></a>
+                        <span class="project-details">
+	            			<a href="${fn:escapeXml(activityUrl)}"><c:out value="${activity.title}"/></a>
+                        </span>
+                        <input id="input-id" type="number" class="rating" readonly="true" min=0 max=5 step=0.5 data-size="xs" value="${activity.avgRating}">
+                    </li>
+                    </c:forEach>
+
+                </ul>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <ul>
+                <li class="active"><a href="#">Prev</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">Next</a></li>
+                </ul>
+            </div>
+
+        </div><!-- End gallery list-->
+
     </div><!-- End container row -->
     
     </div> <!-- End Container -->

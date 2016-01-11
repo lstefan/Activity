@@ -11,4 +11,5 @@ public interface ActivityRepository extends PagingAndSortingRepository<Activity,
 	public List<Activity> findByCategory(Category category);
 	
 	public List<Activity> findFirst8ByOrderByDateHappeningDesc();
+
 }
